@@ -1,6 +1,6 @@
 load('trans_corrected.mat');
-k_diff=0.5;
-k_shag=0.002; % step every 0.2 cm^-1
+k_diff=0.25;
+k_shag=0.01; % step every 0.2 cm^-1
 c=1;
 for i=1:length(trans_cor)
     for j=1:25
