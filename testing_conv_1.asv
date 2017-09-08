@@ -1,0 +1,7 @@
+n1=zeros(100,1);
+n2=ones(100,1);
+n12=cat(1,n1,n2);
+n121=cat(1,n12,n1);
+x=0:10/100
+exp(
+plot(conv(n121,n121));

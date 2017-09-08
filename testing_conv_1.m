@@ -1,0 +1,10 @@
+n1=zeros(100,1);
+n2=ones(100,1);
+n12=cat(1,n1,n2);
+n121=cat(1,n12,n1);
+x=0:10/99:10;
+n2x=cat(1,n1,exp(-x)');
+n2x1=cat(1,n2x,n1);
+z5=conv(n121,n2x1);
+z5=z5*(max(n2x1)/max(z5));
+plot(z5);
