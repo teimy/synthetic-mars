@@ -75,7 +75,9 @@ end
 
 
 %T - transmittance
+
 k_map=1./k_map;
+
 G2=exp(-k_sum);
 
 % F=smooth(G,10);
