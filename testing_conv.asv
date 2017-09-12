@@ -1,6 +1,6 @@
 x=3995:10/600:4005;
 x1=3980:40/1200:4020;
-aLt=7.635705757488408e-0;
+aLt=7.635705757488408e-01;
 y=(aLt/(pi))./((x-4000).^2+aLt.^2);%+0.5*(aLt/(pi))./((x-4004).^2+(aLt.^2));
 % z=conv(y,profile(:,3),'same');
 % z1=conv(profile(:,3),y,'same');
@@ -20,6 +20,8 @@ y=(aLt/(pi))./((x-4000).^2+aLt.^2);%+0.5*(aLt/(pi))./((x-4004).^2+(aLt.^2));
 % z2(end)-z2(1)
 % z3=cumtrapz(abs(y).^2,x);
 % z3(end)-z3(1)
+% x=k_map;
+y=k_sum;
 tf=zeros(numel(x),1);
 for j=1:numel(x)-1
     for i=1:numel(x)-1
