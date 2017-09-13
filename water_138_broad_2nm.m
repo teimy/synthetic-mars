@@ -28,7 +28,7 @@ k_sum=0;
 Dl=3;
 H=dataT(:,1);
 toc
-for j1=1:34
+for j1=1:1
     j1
     tic
     T=0.5*(dataT(j1,2)+dataT(j1+1,2));
@@ -76,7 +76,7 @@ end
 
 %T - transmittance
 
-% k_map=1./k_map;
+k_map=1./k_map;
 
 G2=exp(-k_sum);
 
