@@ -1,5 +1,6 @@
 % Пересчет Sij
 data_T
+Q_hit
 % global data2
 global dataT
 load('trans_corrected.mat');
@@ -14,9 +15,9 @@ E=trans_cor(:,5);
 g1=trans_cor(:,6);
 g2=trans_cor(:,7);
 % T=220;
-for j=1:26
+for j=1:35
 T_ref=296;
-Q=sum(g1.*exp(-c2*E/T(j)));
-Q_ref=sum(g1.*exp(-c2*E/T_ref));
-S_cor(:,j)=S_ref.*Q_ref./Q.*exp(-c2.*E/T(j))./exp(-c2.*E/T_ref).*(1-exp(-c2.*k/T(j)))./(1-exp(-c2.*k/T_ref));
+Q=Q_hitran(round(T(j)));
+Q_ref=Q_hitran(296);
+S_cor(:,j)=S_ref.*(Q_ref./Q).*exp(-c2.*E/T(j))./exp(-c2.*E/T_ref);%.*(1-exp(-c2.*k/T(j)))./(1-exp(-c2.*k/T_ref));
 end

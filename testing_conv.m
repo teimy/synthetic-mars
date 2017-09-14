@@ -1,7 +1,7 @@
 x=3995:10/600:4005;
 x1=3980:40/1200:4020;
 aLt=7.635705757488408e-03;
-y=(aLt/(pi))./((x-4000).^2+aLt.^2)+0.5*(aLt/(pi))./((x-4004).^2+(aLt.^2));
+y=(aLt/(pi))./((x-4000).^2+aLt.^2)+0.5*(aLt/(pi))./((x-4004).^2+(aLt.^2))+3*(aLt/(pi))./((x-4003).^2+(aLt.^2));
 % z=conv(y,profile(:,3),'same');
 % z1=conv(profile(:,3),y,'same');
 % coef=cumtrapz(profile(:,3),x);
@@ -20,24 +20,26 @@ y=(aLt/(pi))./((x-4000).^2+aLt.^2)+0.5*(aLt/(pi))./((x-4004).^2+(aLt.^2));
 % z2(end)-z2(1)
 % z3=cumtrapz(abs(y).^2,x);
 % z3(end)-z3(1)
-%  x=k_map(25000:30000);
-% %  y=k_sum(25000:30000);
+ x=k_map(77000:78000);
+ y=k_sum(77000:78000);
 % y=y/100;
 % y1=(aLt/(pi))./((0).^2+aLt.^2);
 y1=1;
 tf=zeros(numel(x),1);
 for j=1:numel(x)-1
-    if (rem(j,500)==1)
+    if (rem(j,500)==1) 
         j
     end
     for i=1:numel(x)-1
-        tf(j)=tf(j)+(y(i)*y1*sinc_cm_model(x(i)-x(j))+(y(i+1)*y1*sinc_cm_model(x(i+1)-x(j))))/2*(x(i+1)-x(i));
+        if (abs(x(i)-x(j))<17)    
+            tf(j)=tf(j)+(y(i)*y1*sinc_cm_model(x(i)-x(j))+(y(i+1)*y1*sinc_cm_model(x(i+1)-x(j))))/2*(x(i+1)-x(i));
+        end
     end
 end
 %  z2=cumtrapz(tf,x);
 %  z2(end)-z2(1)
 %  z3=cumtrapz(y,x);
 %  z3(end)-z3(1)
-
+figure
  plot(x,y,x,tf);
 
