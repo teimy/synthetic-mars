@@ -16,11 +16,15 @@ for i=1:length(trans_cor)
         k_map(c)=trans_cor(i,1)+(j-26)*k_shag*5;
         c=c+1;
     end
-    for j=8:24
+    for j=8:15
         k_map(c)=trans_cor(i,1)+(j-26)*k_shag;
         c=c+1;
     end
-    for j=25:28
+    for j=16:23
+        k_map(c)=trans_cor(i,1)+(j-26)*k_shag;
+        c=c+1;
+    end
+    for j=24:28
         k_map(c)=trans_cor(i,1)+(j-26)*k_shag*5;
         c=c+1;
     end
