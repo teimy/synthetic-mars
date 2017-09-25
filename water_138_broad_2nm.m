@@ -15,7 +15,7 @@ P0=10^5;
 T0=296;
 % n=20;
 % T=220;
-k_diff=6;
+k_diff=10;
 mu=18*10^-3;
 R=8.31;
 c=3*10^8;
@@ -26,7 +26,7 @@ k_sum=0;
 Dl=3;
 H=dataT(:,1);
 toc
-for j1=1:1
+for j1=1:26
 %   Считывание профилей из MCD 
     j1
     tic
@@ -47,7 +47,7 @@ for i=1:length(trans_cor)
       eta=1.36603*(aL/aF)-0.47719*(aL/aF)^2+0.11116*(aL/aF)^3;
       par(i)=aD/aL;
     for j=1:length(k_map)
-        if ((k_map(j)>trans_cor(i,1)-k_diff)&&(k_map(j)<trans_cor(i,1)+k_diff))
+        if ((abs(k_map(j)-trans_cor(i,1))<k_diff))
 %            Расчет контура
              lorentz=S_cor(i,j1)*(aL/pi)/((k_map(j)-trans_cor(i,1))^2+aL^2);%*prof_koef;
              doppler=S_cor(i,j1)*exp(-(trans_cor(i,1)-k_map(j))^2/aD^2)/(aD*sqrt(pi));%*prof_koef;
