@@ -1,4 +1,5 @@
-% Выбор окна для расчета
+% пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+% load('fitres.mat');
 x=k_map;
 y=k_sum_l;
 y1=1;
@@ -9,7 +10,7 @@ for j=1:numel(x)-1
         toc
         tic
     end
-%   Сама свертка, под копирку с spicam_service
+%   пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ spicam_service
     for i=1:numel(x)-1
         if (abs(x(i)-x(j))<17)    
             tf(j)=tf(j)+(y(i)*y1*sinc_cm_model(x(i)-x(j))+(y(i+1)*y1*sinc_cm_model(x(i+1)-x(j))))/2*(x(i+1)-x(i));
@@ -18,4 +19,3 @@ for j=1:numel(x)-1
 end
 % figure
 % plot(x,y,x,tf);
-

@@ -1,5 +1,5 @@
 w138long
-amp_max=10^-26;
+amp_max=10^-28;
 k_diff=0.5;
 j=1;
 for i=1:numel(data2(:,1))
@@ -8,4 +8,4 @@ for i=1:numel(data2(:,1))
          j=j+1;
      end 
 end
-trans_cor=trans_cor(1347:1657,:);
+ trans_cor=trans_cor(2542:3083,:);
