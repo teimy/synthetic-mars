@@ -1,25 +1,21 @@
-% n1=zeros(100,1);
-% n2=ones(100,1);
-% n12=cat(1,n1,n2);
-% n121=cat(1,n12,n1);
-% x=0:10/99:10;
-% n2x=cat(1,n1,exp(-x)');
-% n2x1=cat(1,n2x,n1);
-% z5=conv(n121,n2x1);
-% z5=z5*(max(n2x1)/max(z5));
-% plot(z5);
-x=-18:0.01:18;
+sinc_cm_profile;
+x=-39:0.001:39;
+% profile(end:-1:1,3);
+%  x1=profile(:,2);
+%  profile(:,3)=(sinc(x1/pi)).^2;
+yi = interp1(profile(:,2), profile(:,3),x);
+% 45301
 % x1=-30:0.01:30;
 % plot(x,sinc_cm_model(x))
 % aD=1.05*10^-2;
 % doppler=10^-26*exp(-x1.^2/aD^2)/(aD*sqrt(pi));%*prof_koef;
-PSF=cat(1,zeros(20850,1),sinc_cm_model(x)');
-PSF=cat(1,PSF,zeros(1,20850)');
+PSF=cat(1,zeros(187500,1),yi');
+PSF=cat(1,PSF,zeros(1,187500)');
 
 tic
-z=conv(k_sum_l,PSF,'same')/100;
-z1=conv(k_sum_d,PSF,'same')/100;
-z2=conv(k_sum_v,PSF,'same')/100;
+z=conv(k_sum_l,PSF,'same')/1000;
+z1=conv(k_sum_d,PSF,'same')/1000;
+z2=conv(k_sum_v,PSF,'same')/1000;
 toc
 
 % x=x;

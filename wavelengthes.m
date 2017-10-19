@@ -1,5 +1,5 @@
 w138long
-amp_max=10^-28;
+amp_max=10^-26;
 k_diff=0.5;
 j=1;
 for i=1:numel(data2(:,1))

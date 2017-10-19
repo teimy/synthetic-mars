@@ -55,13 +55,13 @@ for i=1:length(trans_cor)
         if ((abs(k_map(j)-trans_cor(i,1))<k_diff))
 %            ������ �������
              eta=(k_map(j)-trans_cor(i,1))/aV;
-             lorentz=S_cor(i,j1)*(aL/pi)/((k_map(j)-trans_cor(i,1))^2+aL^2);%*prof_koef;
-             doppler=S_cor(i,j1)*exp(-(trans_cor(i,1)-k_map(j))^2/aD^2)/(aD*sqrt(pi));%*prof_koef;
+%              lorentz=S_cor(i,j1)*(aL/pi)/((k_map(j)-trans_cor(i,1))^2+aL^2);%*prof_koef;
+%              doppler=S_cor(i,j1)*exp(-(trans_cor(i,1)-k_map(j))^2/aD^2)/(aD*sqrt(pi));%*prof_koef;
              voigt=S_cor(i,j1)*sqrt(log(2))/(sqrt(pi)*aV)*(1-ksi)*exp(-eta.^2*log(2))+S_cor(i,j1)/(pi*aV)*ksi*1./(1+eta.^2);
 
              voigt_int(j)=voigt_int(j)+voigt;
-             lorentz_int(j)=lorentz_int(j)+lorentz;
-             doppler_int(j)=doppler_int(j)+doppler;
+%              lorentz_int(j)=lorentz_int(j)+lorentz;
+%              doppler_int(j)=doppler_int(j)+doppler;
 %              k_int(j)=k_int(j)+eta*lorentz+(1-eta)*doppler;
              
         end
@@ -74,8 +74,8 @@ end
 % 7.256894049346880e-01  3083
 % Матвеев, 1972, Фойгт
 dl=(H(j1+1)-H(j1))*100;
-k_int= 2*k_int*Ro*dl;
-k_sum=k_sum+k_int;
+% k_int= 2*k_int*Ro*dl;
+% k_sum=k_sum+k_int;
 lorentz_int= 2*lorentz_int*Ro*dl;
 k_sum_l=k_sum_l+lorentz_int;
 doppler_int= 2*doppler_int*Ro*dl;
